@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct ContentView: View {
+struct ContentView: View  {
+    
+    @State private var isPresented = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+            Button("Scan Check") {
+                self.isPresented = true
+            }.sheet(isPresented: $isPresented) {
+                SwiftUIViewController()
+            }
+        }
 }
 
 struct ContentView_Previews: PreviewProvider {
